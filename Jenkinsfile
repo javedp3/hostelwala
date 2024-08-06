@@ -26,7 +26,6 @@ pipeline {
             sh 'cd "/var/lib/jenkins/workspace/hostelwala"'
             sh 'rm -rf artifact.zip'
             sh 'zip -r artifact . -x "*node_modules**"'
-            sh 'mkdir -m 777 /home/ec2-user/rizwan'
             sh 'scp /var/lib/jenkins/workspace/hostelwala/artifact.zip /home/ec2-user/artifact'
             sh 'unzip -o /home/ec2-user/artifact/artifact.zip -d /var/www/html'
             script {
