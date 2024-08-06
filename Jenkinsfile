@@ -26,8 +26,8 @@ pipeline {
             sh 'cd "/var/lib/jenkins/workspace/hostelwala"'
             sh 'rm -rf artifact.zip'
             sh 'zip -r artifact . -x "*node_modules**"'
-            sh 'scp /var/lib/jenkins/workspace/hostelwala/artifact.zip /home/ec2-user/artifact'
-            sh 'unzip -o /home/ec2-user/artifact/artifact.zip -d /var/www/html'
+            sh 'scp /var/lib/jenkins/workspace/hostelwala/artifact.zip /home/ubuntu/artifact'
+            sh 'unzip -o /home/ubuntu/artifact/artifact.zip -d /var/www/html'
             script {
                 try {
                      sh 'chmod 777 /var/www/html/storage -R'
