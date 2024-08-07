@@ -1,19 +1,19 @@
 pipeline {
     agent any
     stages {
-        stage("Composer Install") {
-            steps {
-               script {
-                    try {
-                        sh 'cd /var/www/html'
-                        sh 'rm -rf vendor/'
-                        sh 'composer install'
-                    } catch (Exception e) {
-                        echo 'Some file permissions not there.'
-                    }
-               }
-            }
-        }
+//         stage("Composer Install") {
+//             steps {
+//                script {
+//                     try {
+//                         sh 'cd /var/www/html'
+//                         sh 'rm -rf vendor/'
+//                         sh 'composer install'
+//                     } catch (Exception e) {
+//                         echo 'Some file permissions not there.'
+//                     }
+//                }
+//             }
+//         }
         stage("Clean Cache") {
             steps {
                sh 'php artisan cache:clear'
@@ -34,15 +34,15 @@ pipeline {
             sh 'zip -r artifact . -x "*node_modules**"'
             sh 'scp /var/lib/jenkins/workspace/hostelwala/artifact.zip /home/ubuntu/artifact'
             sh 'unzip -o /home/ubuntu/artifact/artifact.zip -d /var/www/html'
-//             script {
-//                 try {
-//                      sh 'cd /var/www/html'
-//                      sh 'rm -rf vendor/'
-//                      sh 'composer install'
-//                 } catch (Exception e) {
-//                      echo 'Some file permissions not there.'
-//                 }
-//             }
+            script {
+                try {
+                     sh 'cd /var/www/html'
+                     sh 'rm -rf vendor/'
+                     sh 'composer install'
+                } catch (Exception e) {
+                     echo 'Some file permissions not there.'
+                }
+            }
         }
     }
 }
