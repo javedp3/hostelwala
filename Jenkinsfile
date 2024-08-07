@@ -1,13 +1,6 @@
 pipeline {
     agent any
     stages {
-//         stage("Run Composer Install") {
-//             steps {
-// //                 sh 'rm -rf vendor/'
-// //                 sh 'rm composer.lock'
-//                 sh 'composer install'
-//             }
-//         }
         stage("Clean Cache") {
             steps {
                sh 'php artisan cache:clear'
@@ -31,7 +24,9 @@ pipeline {
             script {
                 try {
                      sh 'cd /var/www/html'
-                     sh 'sudo composer install'
+                     sh 'rm -rf vendor/'
+                     sh 'rm composer.lock'
+                     sh 'composer install'
                 } catch (Exception e) {
                      echo 'Some file permissions not there.'
                 }
