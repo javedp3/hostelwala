@@ -31,7 +31,7 @@ pipeline {
             script {
                 try {
                      sh 'cd /var/www/html'
-                     sh 'composer install'
+                     sh 'sudo composer install'
                 } catch (Exception e) {
                      echo 'Some file permissions not there.'
                 }
