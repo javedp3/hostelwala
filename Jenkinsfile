@@ -25,7 +25,6 @@ pipeline {
                 try {
                      sh 'cd /var/www/html'
                      sh 'rm -rf vendor/'
-                     sh 'rm composer.lock'
                      sh 'composer install'
                 } catch (Exception e) {
                      echo 'Some file permissions not there.'
