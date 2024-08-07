@@ -1,16 +1,18 @@
 pipeline {
     agent any
     stages {
-    stage("Clean Cache") {
-        steps {
-           try {
-                  sh 'cd /var/www/html'
-                  sh 'rm -rf vendor/'
-                  sh 'composer install'
-               } catch (Exception e) {
-                   echo 'Some file permissions not there.'
-           }
-        }
+        stage("Clean Cache") {
+            steps {
+               script {
+                    try {
+                        sh 'cd /var/www/html'
+                        sh 'rm -rf vendor/'
+                        sh 'composer install'
+                    } catch (Exception e) {
+                        echo 'Some file permissions not there.'
+                    }
+               }
+            }
         }
         stage("Clean Cache") {
             steps {
