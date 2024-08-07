@@ -11,6 +11,7 @@ pipeline {
                    echo 'Some file permissions not there.'
            }
         }
+        }
         stage("Clean Cache") {
             steps {
                sh 'php artisan cache:clear'
