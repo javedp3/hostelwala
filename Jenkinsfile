@@ -30,10 +30,10 @@ pipeline {
             sh 'unzip -o /home/ubuntu/artifact/artifact.zip -d /var/www/html'
             script {
                 try {
-                     sh 'chmod 777 -R /var/www/html/storage'
-                     sh 'chmod 777 -R /var/www/html/bootstrap/cache'
+                     sh 'cd /var/www/html'
+                     sh 'composer install'
                 } catch (Exception e) {
-                     echo 'Some file permissions could not be updated.'
+                     echo 'Some file permissions not there.'
                 }
             }
         }
