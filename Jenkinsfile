@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage("Clean Cache") {
+        stage("Composer Install") {
             steps {
                script {
                     try {
