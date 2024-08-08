@@ -35,8 +35,8 @@ pipeline {
             script {
                 try {
                      sh 'cd /var'
-                     sh 'chown -R www-data /www'
-                     sh 'chmod -R 777 /www'
+                     sh 'chown -R www-data www'
+                     sh 'chmod -R 777 www'
                      sh 'cd /www/html'
                      sh 'rm -rf vendor/'
                      sh 'composer install'
