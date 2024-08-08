@@ -35,9 +35,9 @@ pipeline {
             script {
                 try {
                      sh 'cd /var'
-                     sh 'chown -R www-data:jenkins ./'
-                     sh 'chown -R www-data:jenkins ./'
-                     sh 'chmod -R 777 ./'
+                     sh 'chown -R www-data /www'
+                     sh 'chmod -R 777 /www'
+                     sh 'cd /www/html'
                      sh 'rm -rf vendor/'
                      sh 'composer install'
                 } catch (Exception e) {
