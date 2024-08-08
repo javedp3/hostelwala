@@ -23,10 +23,10 @@ pipeline {
             sh 'unzip -o /home/ubuntu/artifact/artifact.zip -d /var/www/html'
             script {
                 try {
+//                      sh 'chown -R www-data:www-data /var/www/html/*'
+//                      sh 'chmod -R 777 /var/www/html/*'
                      sh 'cd /var/www/html'
                      sh 'rm -rf vendor/'
-                     sh 'chown -R www-data:www-data /var/www/html/*'
-                     sh 'chmod -R 777 /var/www/html/*'
                      sh 'composer install'
                 } catch (Exception e) {
                      echo 'Some file permissions not there.'
