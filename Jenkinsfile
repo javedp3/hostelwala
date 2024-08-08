@@ -7,7 +7,7 @@ pipeline {
                     try {
                         sh 'composer install'
                     } catch (Exception e) {
-                        echo 'An error occurred: ${e.message}'
+                        echo 'An error occurred'
                     }
                }
             }
@@ -40,7 +40,7 @@ pipeline {
                      sh 'chmod -R 777 /var/www/html'
                      sh 'composer install'
                 } catch (Exception e) {
-                     echo 'Some file permissions not there. ${e.message}'
+                     echo 'Some file permissions not there'
                 }
             }
         }
