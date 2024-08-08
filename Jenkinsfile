@@ -36,7 +36,7 @@ pipeline {
                 try {
                      sh 'cd /var/www/html'
                      sh 'rm -rf vendor/'
-                     sh 'chown -R www-data:root /var/www/html/*'
+                     sh 'chown -R www-data:jenkins /var/www/html'
                      sh 'chmod -R 777 /var/www/html'
                      sh 'composer install'
                 } catch (Exception e) {
