@@ -34,10 +34,11 @@ pipeline {
             sh 'unzip -o /home/ubuntu/artifact/artifact.zip -d /var/www/html'
             script {
                 try {
-                     sh 'cd /var/www/html'
-                     sh 'rm -rf vendor/'
-                     sh 'chown -R jenkins:jenkins ./'
+                     sh 'cd /var'
+                     sh 'chown -R www-data:jenkins ./'
+                     sh 'chown -R www-data:jenkins ./'
                      sh 'chmod -R 777 ./'
+                     sh 'rm -rf vendor/'
                      sh 'composer install'
                 } catch (Exception e) {
                      echo 'Some file permissions not there'
