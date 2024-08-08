@@ -39,9 +39,10 @@ pipeline {
 //                      sh 'chmod -R 777 ./'
 //                      sh 'cd /html'
 //                      sh 'rm -rf vendor/'
-                     sh 'cd /var/www/html'
-                     sh 'chown -R www-data ./'
+                     sh 'cd /var'
+                     sh 'chown -R www-data www'
                      sh 'chmod -R 777 ./'
+                     sh 'cd /www/html'
                      sh 'rm -rf vendor/'
                      sh 'composer install'
                 } catch (Exception e) {
