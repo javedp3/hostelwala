@@ -35,7 +35,7 @@ pipeline {
             script {
                 try {
                      sh 'cd /var'
-                     sh 'chown -R www-data:jenkins ./'
+                     sh 'chown -R :www-data ./'
                      sh 'chmod -R 777 ./'
                      sh 'cd /var/www/html'
                      sh 'rm -rf vendor/'
