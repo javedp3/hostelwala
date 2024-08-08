@@ -1,6 +1,17 @@
 pipeline {
     agent any
     stages {
+        stage("Composer Install") {
+            steps {
+               script {
+                    try {
+                        sh 'composer install'
+                    } catch (Exception e) {
+                        echo 'An error occurred: ${e.message}'
+                    }
+               }
+            }
+        }
         stage("Clean Cache") {
             steps {
                sh 'php artisan cache:clear'
