@@ -34,10 +34,9 @@ pipeline {
             sh 'unzip -o /home/ubuntu/artifact/artifact.zip -d /var/www/html'
             script {
                 try {
-                     sh 'cd /var'
-                     sh 'chown -R www-data www'
-                     sh 'chmod -R 777 www'
-                     sh 'cd /www/html'
+                     sh 'cd /var/www/'
+                     sh 'chown -R www-data ./'
+                     sh 'chmod -R 777 ./'
                      sh 'rm -rf vendor/'
                      sh 'composer install'
                 } catch (Exception e) {
