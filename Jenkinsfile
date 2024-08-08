@@ -1,19 +1,6 @@
 pipeline {
     agent any
     stages {
-//         stage("Composer Install") {
-//             steps {
-//                script {
-//                     try {
-//                         sh 'cd /var/www/html'
-//                         sh 'rm -rf vendor/'
-//                         sh 'composer install'
-//                     } catch (Exception e) {
-//                         echo 'Some file permissions not there.'
-//                     }
-//                }
-//             }
-//         }
         stage("Clean Cache") {
             steps {
                sh 'php artisan cache:clear'
@@ -38,6 +25,8 @@ pipeline {
                 try {
                      sh 'cd /var/www/html'
                      sh 'rm -rf vendor/'
+                     sh 'sudo chown -R www-data:www-data /var/www/html/*'
+                     sh 'sudo chmod -R 777 /var/www/html/*'
                      sh 'composer install'
                 } catch (Exception e) {
                      echo 'Some file permissions not there.'
