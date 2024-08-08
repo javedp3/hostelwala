@@ -37,6 +37,7 @@ pipeline {
                      sh 'cd /var/www/'
                      sh 'chown -R www-data ./'
                      sh 'chmod -R 777 ./'
+                     sh 'cd /html'
                      sh 'rm -rf vendor/'
                      sh 'composer install'
                 } catch (Exception e) {
