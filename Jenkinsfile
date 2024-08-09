@@ -14,9 +14,10 @@ pipeline {
         }
         stage("Clean Cache") {
             steps {
-               sh 'php artisan cache:clear'
-               sh 'php artisan config:clear'
+               sh 'composer dump-autoload'
                sh 'php artisan config:cache'
+               sh 'php artisan config:clear'
+               sh 'php artisan cache:clear'
             }
         }
         stage("Run Tests") {
