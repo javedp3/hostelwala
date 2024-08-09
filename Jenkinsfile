@@ -41,8 +41,7 @@ pipeline {
                      sh 'chmod -R 777 /var/www/html/./'
                      sh 'composer dump-autoload'
                      sh 'php artisan config:cache'
-//                      sh 'php artisan cache:clear'
-                     sh 'composer install'
+                   //  sh 'composer install'
                 } catch (Exception e) {
                      echo 'Some file permissions not there'
                 }
