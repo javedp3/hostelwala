@@ -38,8 +38,8 @@ pipeline {
 //                      sh 'chown -R :www-data ./'
                      sh 'cd /var/www/html'
                      sh 'chmod -R 777 ./'
-                     sh 'php artisan cache:clear'
-                     sh 'php artisan config:clear'
+                     //sh 'php artisan cache:clear'
+                     //sh 'php artisan config:clear'
                      //sh 'rm -rf vendor/'
                     // sh 'composer install'
                 } catch (Exception e) {
