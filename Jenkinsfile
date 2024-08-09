@@ -36,7 +36,7 @@ pipeline {
                 try {
 //                      sh 'cd /var'
                      sh 'cd /var/www/html'
-                     sh 'chown -R :www-data ./'
+                     //sh 'chown -R :www-data ./'
                      sh 'chmod -R 777 ./'
                      sh 'php artisan cache:clear'
                      sh 'php artisan config:clear'
