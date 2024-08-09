@@ -38,7 +38,9 @@ pipeline {
 //                      sh 'chown -R :www-data ./'
                      sh 'cd /var/www/html'
                      sh 'chmod -R 777 ./'
-                     sh 'rm -rf vendor/'
+                     sh 'php artisan cache:clear'
+                     sh 'php artisan config:clear'
+                     //sh 'rm -rf vendor/'
                     // sh 'composer install'
                 } catch (Exception e) {
                      echo 'Some file permissions not there'
