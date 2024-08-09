@@ -30,7 +30,7 @@ pipeline {
         success {
             sh 'cd "/var/lib/jenkins/workspace/hostelwala"'
             sh 'rm -rf artifact.zip'
-            sh 'zip -r artifact . -x'
+            sh 'zip -r artifact .'
             sh 'scp /var/lib/jenkins/workspace/hostelwala/artifact.zip /home/ubuntu/artifact'
             sh 'rm -rf /var/www/html/*'
             sh 'unzip -o /home/ubuntu/artifact/artifact.zip -d /var/www/html'
