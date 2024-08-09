@@ -39,7 +39,7 @@ pipeline {
                      sh 'cd /var/www/html'
                      sh 'chmod -R 777 ./'
                      sh 'rm -rf vendor/'
-                     sh 'composer install'
+                    // sh 'composer install'
                 } catch (Exception e) {
                      echo 'Some file permissions not there'
                 }
