@@ -31,13 +31,15 @@ pipeline {
             sh 'rm -rf artifact.zip'
             sh 'zip -r artifact . -x "*node_modules**"'
             sh 'scp /var/lib/jenkins/workspace/hostelwala/artifact.zip /home/ubuntu/artifact'
+            sh 'rm -r /var/www/html/*'
             sh 'unzip -o /home/ubuntu/artifact/artifact.zip -d /var/www/html'
             script {
                 try {
 //                      sh 'cd /var'
 //                      sh 'cd /var/www/html'
                      //sh 'chown -R :www-data ./'
-                     sh 'chmod -R 777 /var/www/html'
+//                      /var/www/html/storage/framework/cache/data/
+                     sh 'chmod -R 777 /var/www/html/'
 //                      sh 'chmod -R 777 '
                      sh 'composer dump-autoload'
                      sh 'php artisan config:cache'
