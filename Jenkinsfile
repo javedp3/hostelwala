@@ -35,17 +35,12 @@ pipeline {
             sh 'unzip -o /home/ubuntu/artifact/artifact.zip -d /var/www/html'
             script {
                 try {
-//                      sh 'cd /var'
-//                      sh 'cd /var/www/html'
-                     //sh 'chown -R :www-data ./'
-//                      /var/www/html/storage/framework/cache/data/
-                     sh 'chmod -R 777 /var/www/html/'
-//                      sh 'chmod -R 777 '
+                     sh 'mkdir -m 777 /var/www/html/storage/framework/sessions'
+                     sh 'mkdir -m 777 /var/www/html/storage/framework/views'
+                     sh 'chmod -R 777 /var/www/html/./'
                      sh 'composer dump-autoload'
                      sh 'php artisan config:cache'
                      sh 'php artisan cache:clear'
-                     //sh 'rm -rf vendor/'
-                    // sh 'composer install'
                 } catch (Exception e) {
                      echo 'Some file permissions not there'
                 }
@@ -53,3 +48,12 @@ pipeline {
         }
     }
 }
+
+
+//                      sh 'cd /var'
+//                       sh 'cd /var/www/html'
+                     //sh 'chown -R :www-data ./'
+//                      /var/www/html/storage/framework/cache/data/
+//                      sh 'chmod -R 777 '
+                     //sh 'rm -rf vendor/'
+                    // sh 'composer install'
