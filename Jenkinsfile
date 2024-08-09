@@ -34,12 +34,12 @@ pipeline {
             sh 'scp /var/lib/jenkins/workspace/hostelwala/artifact.zip /home/ubuntu/artifact'
             script {
                 try {
-                    sh 'chown -R jenkins:jenkins /var/www/html/public/assets'
-                    sh 'chmod -R 777 /var/www/html/'
+//                     sh 'chown -R jenkins:jenkins /var/www/html/public/assets'
+//                     sh 'chmod -R 777 /var/www/html/'
                     sh 'rm -rf /var/www/html'
                     sh 'mkdir -m 777 /var/www/html'
                 }catch (Exception e) {
-                    echo 'Something went wrong for deleting existing artifact'
+                    echo 'Something went wrong while deleting existing artifact in html folder'
                 }finally{
                     sh 'unzip -o /home/ubuntu/artifact/artifact.zip -d /var/www/html'
                 }
