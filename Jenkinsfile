@@ -34,10 +34,7 @@ pipeline {
             sh 'scp /var/lib/jenkins/workspace/hostelwala/artifact.zip /home/ubuntu/artifact'
             script {
                 try {
-//                     sh 'chown -R jenkins:jenkins /var/www/html/public/assets'
-//                     sh 'chmod -R 777 /var/www/html/'
-                    sh 'rm -rf /var/www/html'
-                    sh 'mkdir -m 777 /var/www/html'
+                    sh 'rm -rf /var/www/html/{*,.*}'
                 }catch (Exception e) {
                     echo 'Something went wrong while deleting existing artifact in html folder'
                 }finally{
@@ -48,10 +45,11 @@ pipeline {
                 try {
                      sh 'mkdir -m 777 /var/www/html/storage/framework/sessions'
                      sh 'mkdir -m 777 /var/www/html/storage/framework/views'
-                     sh 'composer dump-autoload'
-                     sh 'php artisan config:cache'
                 } catch (Exception e) {
                      echo 'Some file permissions not there'
+                }finally{
+                     sh 'composer dump-autoload'
+                     sh 'php artisan config:cache'
                 }
             }
         }
