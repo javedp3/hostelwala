@@ -32,7 +32,8 @@ pipeline {
             sh 'rm -rf artifact.zip'
             sh 'zip -r artifact .'
             sh 'scp /var/lib/jenkins/workspace/hostelwala/artifact.zip /home/ubuntu/artifact'
-            sh 'chown -R jenkins:jenkins /var/www/html/./'
+            sh 'chown -R jenkins:jenkins /var/www/html/public/assets/admin/'
+            sh 'chmod -R 777 /var/www/html/./'
             sh 'rm -rf /var/www/html/*'
             sh 'unzip -o /home/ubuntu/artifact/artifact.zip -d /var/www/html'
             script {
