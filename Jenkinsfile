@@ -35,9 +35,10 @@ pipeline {
             script {
                 try {
 //                      sh 'cd /var'
-                     sh 'cd /var/www/html'
+//                      sh 'cd /var/www/html'
                      //sh 'chown -R :www-data ./'
-                     sh 'chmod -R 777 ./'
+                     sh 'chmod -R 777 /var/www/html/storage'
+//                      sh 'chmod -R 777 '
                      sh 'composer dump-autoload'
                      sh 'php artisan config:cache'
                      sh 'php artisan cache:clear'
