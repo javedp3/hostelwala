@@ -54,7 +54,7 @@
 
                              </li>
                              <li class="mobile-menubar"><i class="fas fa-bars sidebar-menu-show-hide"></i></li>
-                             <li><a class='btn btn--base' href="{{ route('hostel_list') }}"> @lang('Book Now Testing') </a>
+                             <li><a class='btn btn--base' href="{{ route('hostel_list') }}"> @lang('Book Now') </a>
                              </li>
                          </ul>
                      </div>
