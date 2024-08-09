@@ -38,6 +38,7 @@ pipeline {
                      sh 'cd /var/www/html'
                      //sh 'chown -R :www-data ./'
                     // sh 'chmod -R 777 ./'
+                     sh 'composer dump-autoload'
                      sh 'php artisan config:cache'
                      sh 'php artisan cache:clear'
                      //sh 'rm -rf vendor/'
