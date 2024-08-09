@@ -34,9 +34,10 @@ pipeline {
             sh 'scp /var/lib/jenkins/workspace/hostelwala/artifact.zip /home/ubuntu/artifact'
             script {
                 try {
-                    sh 'chown -R jenkins:jenkins /var/www/html/public/assets/admin/'
-                    sh 'chmod -R 777 /var/www/html/./*'
-                    sh 'rm -rf /var/www/html/*'
+                    sh 'chown -R jenkins:jenkins /var/www/html/public/assets'
+                    sh 'chmod -R 777 /var/www/html/'
+                    sh 'rm -rf /var/www/html'
+                    sh 'mkdir -m 777 /var/www/html'
                 }catch (Exception e) {
                     echo 'Something went wrong for deleting existing artifact'
                 }finally{
@@ -47,7 +48,6 @@ pipeline {
                 try {
                      sh 'mkdir -m 777 /var/www/html/storage/framework/sessions'
                      sh 'mkdir -m 777 /var/www/html/storage/framework/views'
-                     sh 'chmod -R 777 /var/www/html/./*'
                      sh 'composer dump-autoload'
                      sh 'php artisan config:cache'
                 } catch (Exception e) {
