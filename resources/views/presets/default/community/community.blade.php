@@ -26,7 +26,7 @@
                                     <div class="left">
                                         <div class="thumb">
                                             <a href="javascript: void(0)"><img
-                                                    src="{{ getImage(getFilePath('userProfile') . '/' . @$community->user?->image, getFileSize('userProfile')) }}"
+                                                    src="{{ getImage(getFilePath('userProfile') . '.' . @$community->user?->image, getFileSize('userProfile')) }}"
                                                     alt="community-image"></a>
                                         </div>
                                         <div class="content">

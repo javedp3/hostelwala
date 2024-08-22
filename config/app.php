@@ -2,8 +2,12 @@
 
 global $timezone;
 
+//use Illuminate\Support\Pluralizer;
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
+
+
+
 
 require_once('timezone.php');
 
@@ -188,5 +192,7 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
+
+    
 
 ];
