@@ -1,13 +1,13 @@
 pipeline {
     agent any
     stages {
-//         stage("Run Composer Install") {
-//             steps {
-// //                 sh 'rm -rf vendor/'
-// //                 sh 'rm composer.lock'
-//                 sh 'composer install'
-//             }
-//         }
+         stage("Run Composer Install") {
+             steps {
+                 sh 'rm -rf vendor/'
+                 sh 'rm composer.lock'
+                 sh 'composer install'
+            }
+         }
         stage("Clean Cache") {
             steps {
                sh 'php artisan cache:clear'
