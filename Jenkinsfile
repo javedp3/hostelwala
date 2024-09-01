@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-         stage("Run Composer Install") {
+         stage("Install") {
              steps {
                  sh 'rm -rf vendor/'
                  sh 'rm composer.lock'
