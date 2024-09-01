@@ -189,7 +189,7 @@
                                             href="{{ route('admin.deposit.rejected') }}">
                                         </a>
                                         <h5>{{ $deposit['total_deposit_rejected'] }}</h5>
-                                        <span>@lang('Rejected Payments')</span>
+                                        <span>@lang('Rejected Payments ..')</span>
                                     </div>
                                 </div>
                             </div>
