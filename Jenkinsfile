@@ -31,7 +31,7 @@ pipeline {
             script {
                 try {
                      sh 'chmod 777 /var/www/html/storage -R'
-//                      sh 'chmod 777 /var/www/html/bootstrap/cache -R'
+                     sh 'chmod 777 /var/www/html/bootstrap/cache -R'
                 } catch (Exception e) {
                      echo 'Some file permissions could not be updated.'
                 }
