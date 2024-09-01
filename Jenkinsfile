@@ -23,15 +23,15 @@ pipeline {
     }
     post {
         success {
-            sh 'cd "/var/lib/jenkins/workspace/hostelwala"'
+            sh 'cd "/var/lib/jenkins/workspace/test"'
             sh 'rm -rf artifact.zip'
             sh 'zip -r artifact . -x "*node_modules**"'
-            sh 'scp /var/lib/jenkins/workspace/hostelwala/artifact.zip /home/ubuntu/artifact'
+            sh 'scp /var/lib/jenkins/workspace/test/artifact.zip /home/ubuntu/artifact'
             sh 'unzip -o /home/ubuntu/artifact/artifact.zip -d /var/www/html'
             script {
                 try {
-                      sh 'chmod 777 /var/www/html/storage -R'
-                      sh 'chmod 777 /var/www/html/bootstrap/cache -R'
+                      sh 'chmod 777 /var/www/html/test/storage -R'
+                      sh 'chmod 777 /var/www/html/test/bootstrap/cache -R'
                 } catch (Exception e) {
                      echo 'Some file permissions could not be updated.'
                 }
