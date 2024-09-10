@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   php:
-    build: .
+    image: raj01987/myphpapp:latest
     container_name: myphpapp
     ports:
       - "9000:9000"
