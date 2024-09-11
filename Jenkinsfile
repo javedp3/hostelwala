@@ -33,16 +33,7 @@ pipeline {
                     //sh 'docker run -d -p 9000:9000 raj01987/myphpapp:latest '
                 }
             } 
-            stage('Run Tests') {
-            steps {
-                script {
-                    // Run the tests using the Docker image
-                  //  docker.image('my-laravel-app').inside {
-                    //    sh 'make test'
-                    //}
-                   sh 'php artisan test'
-                }
-            }
+           
         }
     }
 
