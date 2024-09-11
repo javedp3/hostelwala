@@ -40,7 +40,7 @@ pipeline {
                   //  docker.image('my-laravel-app').inside {
                     //    sh 'make test'
                     //}
-                    sh 'make test'
+                   sh 'php artisan test'
                 }
             }
         }
