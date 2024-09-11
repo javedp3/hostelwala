@@ -10,9 +10,21 @@ pipeline {
                     git branch: 'local', url: 'https://github.com/javedp3/test.git'
                 }
             }
+            stage("Clean Cache") {
+                steps {
+                   sh 'php artisan cache:clear'
+                   sh 'php artisan config:clear'
+                   sh 'php artisan config:cache'
+                }
+            }
+            stage("Run Tests") {
+                steps {
+                    sh 'php artisan test'
+                }
             stage('install dependensice'){
                 steps{
                     sh 'docker build -t myphpapp .'
+                    
                 }
                 
             }
