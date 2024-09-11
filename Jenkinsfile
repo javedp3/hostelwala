@@ -9,8 +9,7 @@ pipeline {
                 steps {
                     git branch: 'local', url: 'https://github.com/javedp3/test.git'
                 }
-            }
-            
+            }            
             stage('install dependensice'){
                 steps{
                     sh 'docker build -t myphpapp .'                          
@@ -35,8 +34,8 @@ pipeline {
                 }
             } 
             stage("Clean Cache") {
-                script {
                 steps {
+                    script {
                    sh 'php artisan cache:clear'
                    sh 'php artisan config:clear'
                    sh 'php artisan config:cache'
