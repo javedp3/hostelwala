@@ -35,8 +35,8 @@ WORKDIR /var/www/html/test
 #COPY composer.json composer.lock* /var/www/html/test
 # Install PHP dependencies via Composer
 
-RUN php artisan cache:clear &&  php artisan config:clear \
-                    && php artisan config:cache
+#RUN php artisan cache:clear &&  php artisan config:clear \
+#                    && php artisan config:cache
                     
 RUN composer --version
 
