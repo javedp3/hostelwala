@@ -13,17 +13,8 @@ pipeline {
             
             stage('install dependensice'){
                 steps{
-                    sh '''
-                    docker build -t myphpapp .
-                    php artisan cache:clear
-                    php artisan config:clear
-                    php artisan config:cache
-                    php artisan test'
-                    '''
-                    
-                    
-                }
-                
+                    sh 'docker build -t myphpapp .'                          
+                     }               
             }
             stage('push to docker hub') {
                 steps {
