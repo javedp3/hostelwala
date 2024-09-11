@@ -35,11 +35,11 @@ pipeline {
             } 
             stage("Clean Cache") {
                 steps {
-                    script {
+                    
                    sh 'php artisan cache:clear'
                    sh 'php artisan config:clear'
                    sh 'php artisan config:cache'
-                      }
+                      
                 }
              }
               stage('Run Tests') {
