@@ -34,6 +34,10 @@ WORKDIR /var/www/html/test
 ## Copy Composer files (composer.json and composer.lock) if they exist
 #COPY composer.json composer.lock* /var/www/html/test
 # Install PHP dependencies via Composer
+
+RUN php artisan cache:clear &&  php artisan config:clear \
+                    && php artisan config:cache
+                    
 RUN composer --version
 
 # Expose the port on which PHP-FPM will listen
