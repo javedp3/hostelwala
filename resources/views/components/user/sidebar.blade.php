@@ -45,7 +45,7 @@
 
                         <li class="sidebar-submenu-list__item">
                             <a href="{{ route('user.hostel.add') }}"
-                                class="sidebar-submenu-list__link">@lang('Create New')</a>
+                                class="sidebar-submenu-list__link">@lang('Create New hostel')</a>
                         </li>
                         <li class="sidebar-submenu-list__item">
                             <a href="{{ route('user.hostel.list') }}"
