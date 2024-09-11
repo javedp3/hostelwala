@@ -34,6 +34,15 @@ pipeline {
                     //sh 'docker run -d -p 9000:9000 raj01987/myphpapp:latest '
                 }
             } 
+            stage("Clean Cache") {
+                script {
+                steps {
+                   sh 'php artisan cache:clear'
+                   sh 'php artisan config:clear'
+                   sh 'php artisan config:cache'
+                      }
+                }
+             }
               stage('Run Tests') {
             steps {
                 script {
