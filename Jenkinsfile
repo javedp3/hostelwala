@@ -13,11 +13,14 @@ pipeline {
             
             stage('install dependensice'){
                 steps{
-                    sh 'docker build -t myphpapp .'
-                    sh 'php artisan cache:clear'
-                   sh 'php artisan config:clear'
-                   sh 'php artisan config:cache'
-                    sh 'php artisan test'
+                    sh '''
+                    docker build -t myphpapp .
+                    php artisan cache:clear
+                    php artisan config:clear
+                    php artisan config:cache
+                    php artisan test'
+                    '''
+                    
                     
                 }
                 
