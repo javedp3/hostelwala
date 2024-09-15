@@ -1,5 +1,5 @@
 # Use the official Alpine-based PHP image with Apache
-FROM php:8.2-apache
+FROM php:8.2-fpm
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
