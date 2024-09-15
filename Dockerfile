@@ -40,7 +40,7 @@ RUN chown -R www-data:www-data /var/www/html/test \
     && chmod -R 777 /var/www/html/test
 
 RUN apt-get update && apt-get install -y \
-    && a2enmod mpm_prefork && a2enmod php
+    && a2enmod mpm_prefork && a2enmod php  \
     && service apache2 restart
 
 # Expose port 80
