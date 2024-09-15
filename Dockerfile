@@ -2,23 +2,19 @@
 FROM php:8.2-fpm
 
 # Install system dependencies
-RUN apt-get update && apt-get install -y \
-    libpng-dev \
+libpng-dev \
     libjpeg-dev \
     libfreetype6-dev \
-    libapache2-mod-php \
-    libapache2-mod-php \
     libzip-dev \
     unzip \
     git \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install gd \
-    && docker-php a2enmod mpm_prefork \
-    && docker-php a2enmod \
     && docker-php-ext-install mysqli pdo pdo_mysql \
     && docker-php-ext-install zip \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
+
 
   
 
