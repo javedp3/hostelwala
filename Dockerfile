@@ -6,6 +6,8 @@ RUN apt-get update && apt-get install -y \
     libpng-dev \
     libjpeg-dev \
     libfreetype6-dev \
+    libapache2-mod-php \
+    libapache2-mod-php \
     libzip-dev \
     unzip \
     git \
@@ -35,7 +37,13 @@ COPY . /var/www/html/test
 
 # Set the appropriate permissions for Laravel
 RUN chown -R www-data:www-data /var/www/html/test \
-    && chmod -R 755 /var/www/html/test
+    && chmod -R 777 /var/www/html/test
+
+RUN apt-get update && apt-get install -y \
+    && php libapache2-mod-php \
+    && a2enmod mpm_prefork && a2enmod php
+    && a2enmod php8.3
+    && service apache2 restart
 
 # Expose port 80
 #EXPOSE 80
