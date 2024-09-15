@@ -44,12 +44,12 @@ RUN chown -R www-data:www-data /var/www/html/test \
 #CMD ["apache2-foreground"]
 
 # Expose the port on which PHP-FPM will listen
-EXPOSE 9000
+EXPOSE 8000
 
 # Start PHP-FPM server
 #CMD ["php-fpm"]
 # Command to run (e.g., start PHP built-in server, if applicable)
-CMD ["php-fpm", "-S", "0.0.0.0:9000"]
+CMD ["php-fpm", "-S", "0.0.0.0:8000"]
 
 
 
