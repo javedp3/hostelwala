@@ -1,0 +1,15 @@
+# Use the official Apache image
+FROM httpd:2.4
+
+# Install necessary utilities and configure Apache
+RUN apt-get update && apt-get install -y \
+    libapache2-mod-fcgid \
+    && a2enmod proxy_fcgi \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy custom Apache configuration file
+COPY ./apache2.conf /usr/local/apache2/conf/httpd.conf
+
+# Expose port 80
+EXPOSE 80
