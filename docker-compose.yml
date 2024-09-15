@@ -5,6 +5,6 @@ services:
     image: raj01987/myphpapp:latest
     container_name: myphpapp
     ports:
-      - "9000:9000"
+      - "8000:8000"
     volumes:
       - .:/var/www/html/test
