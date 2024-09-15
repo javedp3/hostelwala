@@ -52,9 +52,9 @@ RUN chown -R www-data:www-data /var/www/html/test \
 EXPOSE 8000
 
 # Start PHP-FPM server
-#CMD ["php-fpm"]
+CMD ["php-fpm"]
 # Command to run (e.g., start PHP built-in server, if applicable)
-CMD ["php", "-S", "0.0.0.0:8000"]
+#CMD ["php", "-S", "0.0.0.0:8000"]
 
 
 
