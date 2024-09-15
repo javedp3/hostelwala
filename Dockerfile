@@ -11,7 +11,7 @@ RUN apt update && apt add --no-cache \
     unzip \
     bash \
     git \
-    && apk add --no-cache --virtual .build-deps \
+    && apt add --no-cache --virtual .build-deps \
     autoconf \
     gcc \
     g++ \
