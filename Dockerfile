@@ -2,21 +2,10 @@
 FROM php:8.2-apache
 
 # Install system dependencies
-RUN apt update && apt add --no-cache \
-    libzip-dev \
-    libpng-dev \
-    libjpeg-turbo-dev \
-    libwebp-dev \
-    zlib-dev \
-    unzip \
-    bash \
-    git \
-    && apt add --no-cache --virtual .build-deps \
-    autoconf \
-    gcc \
-    g++ \
-    make \
-    && pecl install xdebug \
+RUN apt update && apt add  \
+apache2 curl gnupg ca-certificates zip unzip git supervisor libpng-dev libjpeg librsvg \
+php php-xmlreader php-mysqli php-zip php-apache2 php-cli php-dev php-pdo_pgsql php-gd php-curl php-xml php-mbstring \
+php-openssl php-json php-dom php-ctype php-session php-fileinfo php-xmlwriter php-simplexml php-tokenizer php-pdo_mysql php-phar \
     && docker-php-ext-enable xdebug \
     && apt del .build-deps
 
