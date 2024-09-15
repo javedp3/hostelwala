@@ -10,12 +10,11 @@ RUN apt-get update && apt-get install -y \
     zlib1g-dev \
     unzip \
     git \
-    && docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp \
+    && docker-php-ext-configure gd --with-jpeg --with-webp \
     && docker-php-ext-install gd pdo pdo_mysql zip \
     && pecl install xdebug \
-    && docker-php-ext-enable xdebug \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+    && apt-get clean 
+  
 
 # Install PHP extensions
 RUN docker-php-ext-install pdo pdo_mysql zip gd
