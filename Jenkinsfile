@@ -9,7 +9,15 @@ pipeline {
                 steps {
                     git branch: 'local', url: 'https://github.com/javedp3/test.git'
                 }
-            }            
+            } 
+             stage('create folder framework'){
+                    steps{
+                        sh 'mkdir storage/framework'  
+                        sh 'mkdir storage/sessions'
+                        sh 'mkdir storage/views'
+                        sh 'mkdir storage/cache'
+                         }               
+                }
             stage('install dependensice'){
                 steps{
                     sh 'docker build -t myphpapp .'                          
