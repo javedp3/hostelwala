@@ -34,16 +34,7 @@ pipeline {
                     //sh 'docker run -d -p 9000:9000 raj01987/myphpapp:latest '
                 }
             } 
-        stage('create folder framework'){
-                    steps{
-                        sh 'mkdir storage/framework'  
-                        sh 'mkdir storage/sessions'
-                        sh 'mkdir storage/views'
-                        sh 'mkdir storage/cache'
-                         }               
-                }
-           
-        
+            
     }
 
     post {
