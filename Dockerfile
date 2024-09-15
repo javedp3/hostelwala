@@ -3,17 +3,19 @@ FROM php:8.2-apache
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
-    libzip-dev \
     libpng-dev \
     libjpeg-dev \
-    libwebp-dev \
-    zlib1g-dev \
+    libfreetype6-dev \
+    libzip-dev \
     unzip \
     git \
-    && docker-php-ext-configure gd --with-jpeg --with-webp \
-    && docker-php-ext-install gd pdo pdo_mysql zip \
-    && pecl install xdebug \
-    && apt-get clean 
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install gd \
+    && docker-php-ext-install mysqli pdo pdo_mysql \
+    && docker-php-ext-install zip \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
   
 
 # Install PHP extensions
