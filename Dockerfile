@@ -25,7 +25,7 @@ RUN docker-php-ext-install pdo pdo_mysql zip gd
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Enable Apache mod_rewrite
-RUN a2enmod rewrite
+#RUN a2enmod rewrite
 
 # Set the working directory
 WORKDIR /var/www/html/test
