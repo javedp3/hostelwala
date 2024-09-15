@@ -54,7 +54,7 @@ EXPOSE 8000
 # Start PHP-FPM server
 #CMD ["php-fpm"]
 # Command to run (e.g., start PHP built-in server, if applicable)
-CMD ["php-fpm", "-G", "0.0.0.0:8000"]
+CMD ["php-fpm", "0.0.0.0:8000"]
 
 
 
