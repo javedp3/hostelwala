@@ -2,7 +2,7 @@
 FROM php:8.2-apache
 
 # Install system dependencies
-RUN apk update && apk add --no-cache \
+RUN apt update && apt add --no-cache \
     libzip-dev \
     libpng-dev \
     libjpeg-turbo-dev \
@@ -18,7 +18,7 @@ RUN apk update && apk add --no-cache \
     make \
     && pecl install xdebug \
     && docker-php-ext-enable xdebug \
-    && apk del .build-deps
+    && apt del .build-deps
 
 # Install PHP extensions
 RUN docker-php-ext-install pdo pdo_mysql zip gd
