@@ -49,7 +49,7 @@ EXPOSE 9000
 # Start PHP-FPM server
 #CMD ["php-fpm"]
 # Command to run (e.g., start PHP built-in server, if applicable)
-CMD ["php", "-S", "0.0.0.0:9000"]
+CMD ["php-fpm", "-S", "0.0.0.0:9000"]
 
 
 
