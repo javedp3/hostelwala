@@ -8,3 +8,13 @@ services:
       - "8000:8000"
     volumes:
       - .:/var/www/html/test
+
+   web:
+    build:
+      context: .
+      dockerfile: Dockerfile-apache
+    container_name: apache_server
+    ports:
+      - "8080:80"
+    depends_on:
+      - php
