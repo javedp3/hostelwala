@@ -2,7 +2,8 @@
 FROM php:8.2-fpm
 
 # Install system dependencies
-libpng-dev \
+RUN apt-get update && apt-get install -y \
+    libpng-dev \
     libjpeg-dev \
     libfreetype6-dev \
     libzip-dev \
